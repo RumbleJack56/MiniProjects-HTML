@@ -1,0 +1,150 @@
+/*Declaring variables*/
+:root{
+	/*--tint: #f4c532;*/
+	--tint: #10d1e5;
+	--bgColor: #222;
+	--white: #FFF;	
+}
+/*Setting the elements to be default size*/
+*,   *::before,  *::after{
+	box-sizing: border-box;
+}
+body{
+	background-color: var(--bgColor);
+	margin: 0;
+
+}
+/*Making the top Navigation Menu*/
+header{
+	z-index: 1;
+	float: left;
+	background: var(--tint);
+	text-align: center;
+	position: fixed;
+	width: 100%;
+}
+
+.heading{
+	text-transform: uppercase;
+	color: var(--bgColor);
+	margin-left: 1em;
+	float: left;
+}
+
+nav{
+	height: 2000px;
+	background-color: var(--tint);
+	float: right;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: minmax(45px,15%);
+	text-transform: uppercase;		
+	transform: scale(0,1);
+	transform-origin: right;
+	transition: transform 400ms ease-in-out;
+}
+
+nav ul{
+	list-style: none;
+	margin: 0; padding: 0;
+}
+
+nav ul li{
+	margin: 1em 1em;
+}
+
+nav ul li a{
+	font-family: timesnewroman;
+	color: var(--bgColor);
+	text-decoration: none;
+	font-weight: bolder;
+	font-size: 18px;
+	opacity: 0;
+	margin: 0 1rem;
+	transition: opacity 180ms ease-in-out;
+}
+
+.start{
+	position: absolute;
+	top: 6rem;
+	width: 85%;
+	margin: 0 6rem;
+	padding-right: 15px;
+	margin-bottom: 1rem;
+	color: var(--white);
+	transition: margin 400ms ease-in-out;
+}
+
+.nav-toggle{
+	display: none;
+}
+.nav-toggle-label{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 1em;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.nav-toggle-label span{
+	display: block;
+	background-color: var(--bgColor);
+	height: 4px;
+	width: 2em;
+	transform: rotate(0deg);
+	border-radius: 2px;
+	position: relative;
+}
+
+.nav-toggle-label span::before{
+	display: block;
+	background-color: var(--bgColor);
+	height: 4px;
+	width: 2em;
+	transform: rotate(0deg);
+	border-radius: 2px;
+	position: relative;
+	content: '';
+	position: absolute;
+	bottom: 8px;
+}
+.nav-toggle-label span::after{
+	display: block;
+	background-color: var(--bgColor);
+	height: 4px;
+	width: 2em;
+	transform: rotate(0deg);
+	border-radius: 2px;
+	position: relative;
+	content: '';
+	position: absolute;
+	top: 8px;
+}
+/*These form the animations in the nav bar*/
+.nav-toggle:checked ~ header nav{
+	display: block;
+	transform: scale(1,1);
+	display: block;
+}
+.nav-toggle:checked ~ header nav ul li a{
+	color: var(--when-halting);
+	transition: opacity 250ms ease-in-out 250ms;
+	opacity: 1;
+	transition: color 500ms ease-in-out 100ms;
+}
+.nav-toggle:checked ~ header nav ul li {
+	border-radius: 10px;
+	transition: background 500ms ease-in-out 100ms;
+}
+.nav-toggle:checked ~ header nav ul li:hover{
+	background: var(--bgColor);	
+}
+.nav-toggle:checked ~ header nav ul li a:hover{
+	color: var(--tint);
+}
+
+.nav-toggle:checked ~ .start{
+	margin: 0 2rem;
+}
